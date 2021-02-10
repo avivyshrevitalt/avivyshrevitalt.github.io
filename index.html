@@ -681,7 +681,7 @@ Fitness</h3>
                 <div class="form-card">
                     <div class="col-lg-12 mx-auto  mbr-form" data-form-type="formoid">
                         <!--Formbuilder Form-->
-                        <form method="POST" class="mbr-form" action-xhr="https://formoid.net/api/amp-form/push" data-form-title="Form Name" id="myFormform03g" on="submit:myFormform03g.clear;submit-success:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: '', valueformdata01form03g: ''}, formdata11form03g:{stateformdata11form03g: '', valueformdata11form03g: ''}}});submit-error:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: myStateform03g.formdata01form03g.valueformdata01form03g}, formdata11form03g:{stateformdata11form03g: myStateform03g.formdata11form03g.valueformdata11form03g}}})"><amp-state id="myStateform03g"><script type="application/json"> {"formdata01form03g":{ "stateformdata01form03g": "", "valueformdata01form03g": ""},"formdata11form03g":{ "stateformdata11form03g": "", "valueformdata11form03g": ""}}</script></amp-state><input type="hidden" name="email" data-form-email="true" value="o29N0PNJYZEoLYYkuRke3+G6NUZ501ObiUVjcE0Qt4r+I99aiSLaRQMuNUNp7MiVw4gPZHO3/0IVz8/2vNzhH2HAvXFzr8IWixfOmgLZV7R9d/GFf4Iwnfx4VKwAEIYp">
+                        <form method="POST" class="mbr-form" action-xhr="https://formoid.net/api/amp-form/push" data-form-title="Form Name" id="myFormform03g" on="submit:myFormform03g.clear;submit-success:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: '', valueformdata01form03g: ''}, formdata11form03g:{stateformdata11form03g: '', valueformdata11form03g: ''}}});submit-error:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: myStateform03g.formdata01form03g.valueformdata01form03g}, formdata11form03g:{stateformdata11form03g: myStateform03g.formdata11form03g.valueformdata11form03g}}})"><amp-state id="myStateform03g"><script type="application/json"> {"formdata01form03g":{ "stateformdata01form03g": "", "valueformdata01form03g": ""},"formdata11form03g":{ "stateformdata11form03g": "", "valueformdata11form03g": ""}}</script></amp-state><input type="hidden" name="email" data-form-email="true" value="y2FX/dDOfkLk2aTmwpXOXC1Nv9NwUrop4N4Uv++22UZuDt2GAbUHQiujA/uE8sEmd8UOTHus6cMPd8vWYP1k/Mi5y2Ejz2WhtGyj2GIYoFMr6hvQ8/P/5/AE2nbdGv4Q">
                             <div class="mbr-row">
                                 <div submit-success="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
                                     <template data-form-alert="" type="amp-mustache">Thanks for filling out the
@@ -782,7 +782,8 @@ Fitness</h3>
   <script>
 jQuery.get('https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "author"]{image,name,slug,bio}',  // url
       function (data, textStatus, jqXHR) {  // success callback
-          alert('status: ' + textStatus + ', data:' + data);
+          //alert('status: ' + textStatus + ', data:' + data);
+console.log(data);
     });
 </script>
 
