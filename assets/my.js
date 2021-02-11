@@ -13,7 +13,7 @@ $( document ).ready(function() {
                 $('.content02 .i-amphtml-layout').attr('src', data.result[0].header.image);
             }, 100);
 
-            
+
            $('#features02-4 .container .mbr-row').html('');
             $('#features02-4 .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
                 '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">Our Core Features</h2>\n' +
@@ -35,7 +35,7 @@ $( document ).ready(function() {
                     '                    <div class="card-box">\n' +
                     '                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">\n' +
                     ''+value.title+'</h3>\n' +
-                    '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7"></h4>\n' +
+                    '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">Pellentesque luctus viverra</h4>\n' +
                     '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">'+value.description+'</p>\n' +
                     '                     \n' +
                     '                    </div>\n' +
