@@ -2,8 +2,8 @@ $( document ).ready(function() {
     const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{' +
         '"p1":sectionD[]->{' +
         'title},title,' +
-        '"header":header->{name,"image": image.asset->url,' +
-        '"bioText": bio[].(children[0].text) },' +
+        '"header":header->{name,"image": image.asset->url,' + '"bioText": bio[].(children[0].text) },' +
+        '"sectionB":sectionB->{name,"image": image.asset->url,' + '"bioText": bio[].(children[0].text) },' +
         '"sectionA":sectionA[]->{title,subTitle,svg,description} }';
     jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
@@ -19,7 +19,7 @@ $( document ).ready(function() {
             }, 100);
 
 
-           $('#features02-4 .container .mbr-row').html('');
+            $('#features02-4 .container .mbr-row').html('');
             $('#features02-4 .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
                 '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">Our Core Features</h2>\n' +
                 '            \n' +
@@ -47,6 +47,16 @@ $( document ).ready(function() {
                     '                </div>\n' +
                     '            </div>');
             });
-            console.log(data.result[0].sectionA);
+
+
+            $('#content01-b .text-col .display-2').text(data.result[0].sectionB.name);
+            $('#content01-b .text-col .text1').text(data.result[0].sectionB.bioText[0].slice(0, 400));
+            $('#content01-b .text-col .text2').text(data.result[0].sectionB.bioText[1].slice(0, 100));
+            setTimeout(function () {
+                console.log('run 1 sec image');
+                $('amp-img#mainImage').attr('src', data.result[0].sectionB.image);
+                $('amp-img#mainImage img').attr('src', data.result[0].sectionB.image);
+            }, 100);
+            console.log(data.result[0].sectionB);
         });
 });
