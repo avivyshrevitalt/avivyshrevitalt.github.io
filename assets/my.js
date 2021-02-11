@@ -1,5 +1,10 @@
 $( document ).ready(function() {
-    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{\'p1\':sectionD[]->{title},title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[0].text) },\'sectionA\':sectionA[]->{title,svg,description} }';
+    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{' +
+        '"p1":sectionD[]->{' +
+        'title},title,' +
+        '"header":header->{name,"image": image.asset->url,' +
+        '"bioText": bio[].(children[0].text) },' +
+        '"sectionA":sectionA[]->{title,subTitle,svg,description} }';
     jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
             //alert('status: ' + textStatus + ', data:' + data);
@@ -35,7 +40,7 @@ $( document ).ready(function() {
                     '                    <div class="card-box">\n' +
                     '                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">\n' +
                     ''+value.title+'</h3>\n' +
-                    '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">Pellentesque luctus viverra</h4>\n' +
+                    '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">'+value.subTitle+'</h4>\n' +
                     '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">'+value.description+'</p>\n' +
                     '                     \n' +
                     '                    </div>\n' +
