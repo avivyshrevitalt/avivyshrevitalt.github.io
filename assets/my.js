@@ -13,11 +13,35 @@ $( document ).ready(function() {
                 $('.content02 .i-amphtml-layout').attr('src', data.result[0].header.image);
             }, 100);
 
+            
+           $('#features02-4 .container .mbr-row').html('');
+            $('#features02-4 .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
+                '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">Our Core Features</h2>\n' +
+                '            \n' +
+                '            </div>');
 
-            // (function(){
-            //     tap:AMP.setState({ myImageUrl: data.result[0].header.image, myImageAlt: 'Another example image'});
-            // })();
-
-            console.log(data.result[0].header.bioText[0]+data.result[0].header.bioText[1]);
+            $.each(data.result[0].sectionA, function( index, value ) {
+                console.log( index + ": " + value.title );
+                $('#features02-4 .container .mbr-row').append('<div class="card mbr-col-lg-6 mbr-col-md-7 mbr-md-pb mbr-col-sm-12">\n' +
+                    '                <div class="card-wrapper">\n' +
+                    '                    <div class="icon-wrapper">\n' +
+                    '                        \n' +
+                    '            <div class="icon">\n' +
+                    '                <span class="iconfont-wrapper">\n' +
+                    '                    <span class="amp-iconfont mobi-mbri-apple mobi-mbri"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="112" height="112"><path d="'+value.svg+'"></path></svg></span>\n' +
+                    '                </span>\n' +
+                    '            </div>\n' +
+                    '                    </div> \n' +
+                    '                    <div class="card-box">\n' +
+                    '                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">\n' +
+                    ''+value.title+'</h3>\n' +
+                    '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7"></h4>\n' +
+                    '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">'+value.description+'</p>\n' +
+                    '                     \n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>');
+            });
+            console.log(data.result[0].sectionA);
         });
 });
