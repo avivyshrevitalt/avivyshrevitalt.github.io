@@ -85,7 +85,7 @@ $( document ).ready(function() {
         $('#features06-5 .text2').text(sectionE[1].description);
     };
 
-    sectionERender = (sectionF)=> {
+    sectionFRender = (sectionF)=> {
         $('#features01-d  .container .mbr-row').html('');
         $('#features01-d .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
             '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">'+sectionF.title+'</h2>\n' +
@@ -143,7 +143,7 @@ $( document ).ready(function() {
 
             sectionERender(data.result[0].sectionE);
 
-            sectionERender(data.result[0].sectionF);
+            sectionFRender(data.result[0].sectionF);
 
             sectionTestimonialRender(data.result[0].testimonial);
 
