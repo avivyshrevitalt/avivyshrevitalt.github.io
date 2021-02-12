@@ -1,14 +1,24 @@
 $( document ).ready(function() {
-    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{' +
-        '"p1":sectionD[]->{' +
-        'title},title,' +
-        '"header":header->{name,"image": image.asset->url,' + '"bioText": bio[].(children[0].text) },' +
-        '"sectionB":sectionB->{name,"image": image.asset->url,' + '"bioText": bio[].(children[0].text) },' +
-        '"sectionA":sectionA[]->{title,subTitle,svg,description} }';
-    jQuery.get(url,
+    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{\'sectionD\':sectionD[]->{title},title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },\'sectionA\':sectionA[]->{title,svg,description,subTitle},"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text) }}';
+        jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
             //alert('status: ' + textStatus + ', data:' + data);
-
+            function toPlainText(blocks = []) {
+                return blocks
+                    // loop through each block
+                    .map(block => {
+                        // if it's not a text block with children,
+                        // return nothing
+                        if (block._type !== 'block' || !block.children) {
+                            return ''
+                        }
+                        // loop through the children spans, and join the
+                        // text strings
+                        return block.children.map(child => child.text).join('')
+                    })
+                    // join the paragraphs leaving split by two linebreaks
+                    .join('\n\n')
+            }
             $('.content02 .display-1').html(data.result[0].header.name);
             $('.content02 .text1').html(data.result[0].header.bioText[0]+"\n\r\n\r"+data.result[0].header.bioText[1].slice(0, 400) );
             $('.content02 .text2').html(data.result[0].header.bioText[2].slice(0, 100) + "...");
@@ -57,6 +67,9 @@ $( document ).ready(function() {
                 $('amp-img#mainImage').attr('src', data.result[0].sectionB.image);
                 $('amp-img#mainImage img').attr('src', data.result[0].sectionB.image);
             }, 100);
+
+            $('#content04-c > div.container > div > div > div > div.display-7').text(toPlainText(data.result[0].sectionB.bioText));
+
             console.log(data.result[0].sectionB);
         });
 });
