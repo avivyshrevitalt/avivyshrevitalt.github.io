@@ -65,15 +65,21 @@ $( document ).ready(function() {
     sectionCRender = (sectionC) =>{
         $('#content04-c > div.container > div > div > div > h3').text(sectionC.title);
         const plaintext = toPlainText(sectionC.body);
-        console.log(plaintext);
         $('#content04-c > div.container > div > div > div > div.display-7').text(plaintext);
     };
 
 
     sectionDRender = (sectionD) =>{
-
+        $('#content03-e .display-5').text(sectionD.name);
+        $('#content03-e .display-4').text(sectionD.bioText);
+        setTimeout(function () {
+            $('#content03-e amp-img').attr('src', sectionD.image);
+            $('#content03-e amp-img img').attr('src', sectionD.image);
+        }, 100);
+        console.log(sectionD);
     };
-    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{\'sectionD\':sectionD[]->{title},title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },\'sectionA\':sectionA[]->{title,svg,description,subTitle},"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},"sectionC":sectionC->{title,body,"image": mainImage.asset->url}, }';
+
+    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },\'sectionA\':sectionA[]->{title,svg,description,subTitle},"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},"sectionC":sectionC->{title,body,"image": mainImage.asset->url},"sectionD":sectionD->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)}, }';
         jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
 
@@ -84,6 +90,8 @@ $( document ).ready(function() {
             sectionBRender(data.result[0].sectionB);
 
             sectionCRender(data.result[0].sectionC);
+
+            sectionDRender(data.result[0].sectionD);
 
         });
 });
