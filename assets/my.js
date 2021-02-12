@@ -1,75 +1,89 @@
 $( document ).ready(function() {
-    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{\'sectionD\':sectionD[]->{title},title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },\'sectionA\':sectionA[]->{title,svg,description,subTitle},"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text) }}';
+
+    function toPlainText(blocks = []) {
+        return blocks
+            .map(block => {
+                if (block._type !== 'block' || !block.children) {
+                    return ''
+                }
+                return block.children.map(child => child.text).join('')
+            })
+            .join('\n\n')
+    }
+    headerRender = (header) => {
+        $('.content02 .display-1').html(header.name);
+        $('.content02 .text1').html((header.bioText[0]+header.bioText[1]).slice(0, 400) );
+        $('.content02 .text2').html((header.bioText[2][0]).slice(0, 100) + "...");
+        setTimeout(function () {
+            $('.content02 .i-amphtml-replaced-content').attr('src', header.image);
+            $('.content02 .i-amphtml-layout').attr('src', header.image);
+        }, 100);
+    };
+
+    sectionARender = (sectionA,title)=>{
+
+        $('#features02-4 .container .mbr-row').html('');
+        $('#features02-4 .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
+            '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">'+title+'</h2>\n' +
+            '            \n' +
+            '            </div>');
+
+        $.each(sectionA, function( index, value ) {
+            console.log( index + ": " + value.title );
+            $('#features02-4 .container .mbr-row').append('<div class="card mbr-col-lg-6 mbr-col-md-7 mbr-md-pb mbr-col-sm-12">\n' +
+                '                <div class="card-wrapper">\n' +
+                '                    <div class="icon-wrapper">\n' +
+                '                        \n' +
+                '            <div class="icon">\n' +
+                '                <span class="iconfont-wrapper">\n' +
+                '                    <span class="amp-iconfont mobi-mbri-apple mobi-mbri"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="112" height="112"><path d="'+value.svg+'"></path></svg></span>\n' +
+                '                </span>\n' +
+                '            </div>\n' +
+                '                    </div> \n' +
+                '                    <div class="card-box">\n' +
+                '                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">\n' +
+                ''+value.title+'</h3>\n' +
+                '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">'+value.subTitle+'</h4>\n' +
+                '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">'+value.description+'</p>\n' +
+                '                     \n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>');
+        });
+    };
+
+    sectionBRender = (sectionB) =>{
+        $('#content01-b .text-col .display-2').text(sectionB.name);
+        $('#content01-b .text-col .text1').text(sectionB.bioText[0].slice(0, 400));
+        $('#content01-b .text-col .text2').text(sectionB.bioText[1].slice(0, 100));
+        setTimeout(function () {
+            $('amp-img#mainImage').attr('src', sectionB.image);
+            $('amp-img#mainImage img').attr('src', sectionB.image);
+        }, 100);
+    };
+
+    sectionCRender = (sectionC) =>{
+        $('#content04-c > div.container > div > div > div > h3').text(sectionC.title);
+        const plaintext = toPlainText(sectionC.body);
+        console.log(plaintext);
+        $('#content04-c > div.container > div > div > div > div.display-7').text(plaintext);
+    };
+
+
+    sectionDRender = (sectionD) =>{
+
+    };
+    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{\'sectionD\':sectionD[]->{title},title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },\'sectionA\':sectionA[]->{title,svg,description,subTitle},"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},"sectionC":sectionC->{title,body,"image": mainImage.asset->url}, }';
         jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
-            //alert('status: ' + textStatus + ', data:' + data);
-            function toPlainText(blocks = []) {
-                return blocks
-                    // loop through each block
-                    .map(block => {
-                        // if it's not a text block with children,
-                        // return nothing
-                        if (block._type !== 'block' || !block.children) {
-                            return ''
-                        }
-                        // loop through the children spans, and join the
-                        // text strings
-                        return block.children.map(child => child.text).join('')
-                    })
-                    // join the paragraphs leaving split by two linebreaks
-                    .join('\n\n')
-            }
-            $('.content02 .display-1').html(data.result[0].header.name);
-            $('.content02 .text1').html(data.result[0].header.bioText[0]+"\n\r\n\r"+data.result[0].header.bioText[1].slice(0, 400) );
-            $('.content02 .text2').html(data.result[0].header.bioText[2].slice(0, 100) + "...");
-            setTimeout(function () {
-                console.log('run 1 sec image');
-                $('.content02 .i-amphtml-replaced-content').attr('src', data.result[0].header.image);
-                $('.content02 .i-amphtml-layout').attr('src', data.result[0].header.image);
-            }, 100);
 
+            headerRender(data.result[0].header);
 
-            $('#features02-4 .container .mbr-row').html('');
-            $('#features02-4 .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
-                '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">Our Core Features</h2>\n' +
-                '            \n' +
-                '            </div>');
+            sectionARender(data.result[0].sectionA,'Our Core Features');
 
-            $.each(data.result[0].sectionA, function( index, value ) {
-                console.log( index + ": " + value.title );
-                $('#features02-4 .container .mbr-row').append('<div class="card mbr-col-lg-6 mbr-col-md-7 mbr-md-pb mbr-col-sm-12">\n' +
-                    '                <div class="card-wrapper">\n' +
-                    '                    <div class="icon-wrapper">\n' +
-                    '                        \n' +
-                    '            <div class="icon">\n' +
-                    '                <span class="iconfont-wrapper">\n' +
-                    '                    <span class="amp-iconfont mobi-mbri-apple mobi-mbri"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="112" height="112"><path d="'+value.svg+'"></path></svg></span>\n' +
-                    '                </span>\n' +
-                    '            </div>\n' +
-                    '                    </div> \n' +
-                    '                    <div class="card-box">\n' +
-                    '                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">\n' +
-                    ''+value.title+'</h3>\n' +
-                    '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">'+value.subTitle+'</h4>\n' +
-                    '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">'+value.description+'</p>\n' +
-                    '                     \n' +
-                    '                    </div>\n' +
-                    '                </div>\n' +
-                    '            </div>');
-            });
+            sectionBRender(data.result[0].sectionB);
 
+            sectionCRender(data.result[0].sectionC);
 
-            $('#content01-b .text-col .display-2').text(data.result[0].sectionB.name);
-            $('#content01-b .text-col .text1').text(data.result[0].sectionB.bioText[0].slice(0, 400));
-            $('#content01-b .text-col .text2').text(data.result[0].sectionB.bioText[1].slice(0, 100));
-            setTimeout(function () {
-                console.log('run 1 sec image');
-                $('amp-img#mainImage').attr('src', data.result[0].sectionB.image);
-                $('amp-img#mainImage img').attr('src', data.result[0].sectionB.image);
-            }, 100);
-
-            $('#content04-c > div.container > div > div > div > div.display-7').text(toPlainText(data.result[0].sectionB.bioText));
-
-            console.log(data.result[0].sectionB);
         });
 });
