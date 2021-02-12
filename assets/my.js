@@ -83,7 +83,7 @@ $( document ).ready(function() {
 
         $('#features06-5 .title2').text(sectionE[1].title);
         $('#features06-5 .text2').text(sectionE[1].description);
-    }
+    };
 
     sectionERender = (sectionF)=> {
         $('#features01-d  .container .mbr-row').html('');
@@ -111,7 +111,12 @@ $( document ).ready(function() {
                 '                </div>\n' +
                 '            </div>');
         });
-    }
+    };
+
+    sectionTestimonialRender = (testimonial) =>{
+        $('#testimonials01-a  .card  p.text1').text(testimonial.text);
+        $('#testimonials01-a  .card  p.text2').text(testimonial.client);
+    };
 
     const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]' +
         '{title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },' +
@@ -121,6 +126,7 @@ $( document ).ready(function() {
         '"sectionD":sectionD->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},' +
         '"sectionE":sectionE[]->{title,svg,description,subTitle},' +
         '"sectionF":sectionF->{title,category[]->{title,subTitle,description,svg}},' +
+        '"testimonial":testimonial->{title,text,client},' +
         ' }';
         jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
@@ -139,6 +145,7 @@ $( document ).ready(function() {
 
             sectionERender(data.result[0].sectionF);
 
+            sectionTestimonialRender(data.result[0].testimonial);
 
         });
 });
