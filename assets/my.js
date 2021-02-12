@@ -29,7 +29,6 @@ $( document ).ready(function() {
             '            </div>');
 
         $.each(sectionA, function( index, value ) {
-            console.log( index + ": " + value.title );
             $('#features02-4 .container .mbr-row').append('<div class="card mbr-col-lg-6 mbr-col-md-7 mbr-md-pb mbr-col-sm-12">\n' +
                 '                <div class="card-wrapper">\n' +
                 '                    <div class="icon-wrapper">\n' +
@@ -76,10 +75,25 @@ $( document ).ready(function() {
             $('#content03-e amp-img').attr('src', sectionD.image);
             $('#content03-e amp-img img').attr('src', sectionD.image);
         }, 100);
-        console.log(sectionD);
     };
 
-    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]{title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },\'sectionA\':sectionA[]->{title,svg,description,subTitle},"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},"sectionC":sectionC->{title,body,"image": mainImage.asset->url},"sectionD":sectionD->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)}, }';
+    sectionERender = (sectionE)=>{
+        console.log(sectionE);
+        $('#features06-5 .title1').text(sectionE[0].title);
+        $('#features06-5 .text1').text(sectionE[0].description);
+
+        $('#features06-5 .title2').text(sectionE[1].title);
+        $('#features06-5 .text2').text(sectionE[1].description);
+    }
+
+    const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]' +
+        '{title,"header":header->{name,"image": image.asset->url,\'bioText\': bio[].(children[].text) },' +
+        '\'sectionA\':sectionA[]->{title,svg,description,subTitle},' +
+        '"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},' +
+        '"sectionC":sectionC->{title,body,"image": mainImage.asset->url},' +
+        '"sectionD":sectionD->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},' +
+        '"sectionE":sectionE[]->{title,svg,description,subTitle}' +
+        ' }';
         jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
 
@@ -92,6 +106,8 @@ $( document ).ready(function() {
             sectionCRender(data.result[0].sectionC);
 
             sectionDRender(data.result[0].sectionD);
+
+            sectionERender(data.result[0].sectionE);
 
         });
 });
