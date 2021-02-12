@@ -78,12 +78,39 @@ $( document ).ready(function() {
     };
 
     sectionERender = (sectionE)=>{
-        console.log(sectionE);
         $('#features06-5 .title1').text(sectionE[0].title);
         $('#features06-5 .text1').text(sectionE[0].description);
 
         $('#features06-5 .title2').text(sectionE[1].title);
         $('#features06-5 .text2').text(sectionE[1].description);
+    }
+
+    sectionERender = (sectionF)=> {
+        $('#features01-d  .container .mbr-row').html('');
+        $('#features01-d .container .mbr-row').append('<div class="mbr-col-lg-12 mbr-pb-5 mbr-col-md-12 mbr-col-sm-12">\n' +
+            '            <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center mbr-semibold display-1">'+sectionF.title+'</h2>\n' +
+            '            \n' +
+            '            </div>');
+
+        $.each(sectionF.category, function (index, value) {
+            $('#features01-d .container .mbr-row').append('<div class="card mbr-col-lg-4 mbr-col-md-7 mbr-md-pb mbr-col-sm-12">\n' +
+                '                <div class="card-wrapper">\n' +
+                '                    <div class="icon-wrapper">\n' +
+                '                        \n' +
+                '            <div class="icon">\n' +
+                '                <span class="iconfont-wrapper">\n' +
+                '                    <span class="amp-iconfont mobi-mbri-apple mobi-mbri"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="112" height="112"><path d="' + value.svg + '"></path></svg></span>\n' +
+                '                </span>\n' +
+                '            </div>\n' +
+                '                    </div> \n' +
+                '                    <div style="margin-top: 58px;" class="card-box">\n' +
+                '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">' + value.subTitle + '</h4>\n' +
+                '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">' + value.description + '</p>\n' +
+                '                     \n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>');
+        });
     }
 
     const url = 'https://0d1i1j4e.api.sanity.io/v1/data/query/production?query=*[_type == "homePage"]' +
@@ -92,7 +119,8 @@ $( document ).ready(function() {
         '"sectionB":sectionB->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},' +
         '"sectionC":sectionC->{title,body,"image": mainImage.asset->url},' +
         '"sectionD":sectionD->{name,"image": image.asset->url,"bioText": bio[].(children[0].text)},' +
-        '"sectionE":sectionE[]->{title,svg,description,subTitle}' +
+        '"sectionE":sectionE[]->{title,svg,description,subTitle},' +
+        '"sectionF":sectionF->{title,category[]->{title,subTitle,description,svg}},' +
         ' }';
         jQuery.get(url,
         function (data, textStatus, jqXHR) {  // success callback
@@ -108,6 +136,9 @@ $( document ).ready(function() {
             sectionDRender(data.result[0].sectionD);
 
             sectionERender(data.result[0].sectionE);
+
+            sectionERender(data.result[0].sectionF);
+
 
         });
 });
