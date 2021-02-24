@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo1.png" type="image/x-icon">
   <meta name="description" content="">
-  <meta name="amp-script-src" content="sha384-VkhkMrYlurDfI4JCOX1jVfgQ2jP13tQFy864bldlE3LAfJrVrZZ6TcC3Ib-4lE-3 sha384-E-8RWMvok7dRyPEtNQl-qbsNdeMcfoNRlNhuNY4o8l4tV0ZhumEPyQgABtD7MXqu sha384-Ne4X8MV95bvABNZHPibM-lbCLHwdwDwBpjsumJkA6wy2fLZO_HNBfhFBBfpV2zl4">
+  <meta name="amp-script-src" content="sha384-VkhkMrYlurDfI4JCOX1jVfgQ2jP13tQFy864bldlE3LAfJrVrZZ6TcC3Ib-4lE-3 sha384-Ne4X8MV95bvABNZHPibM-lbCLHwdwDwBpjsumJkA6wy2fLZO_HNBfhFBBfpV2zl4 sha384-E-8RWMvok7dRyPEtNQl-qbsNdeMcfoNRlNhuNY4o8l4tV0ZhumEPyQgABtD7MXqu">
   
   <title>Home</title>
   
@@ -78,7 +78,7 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
     </div>
         </div>
   </amp-sidebar>
-<amp-animation id="cartanim" layout="nodisplay" trigger="visibility"><script type="application/json">{"duration": ".5s","iterations": "3","keyframes": {"opacity": [0,0,0.7,1]},"selector": ".pulse-button"}</script></amp-animation><amp-script src="assets/shopping-cart/cart.js" height="2" width="100" layout="responsive"><div class="shoping-cart-wrapper" data-amp-bind-class="cart.items.length ? &quot;shoping-cart-wrapper show&quot; : &quot;shoping-cart-wrapper&quot; "><a class="shopping-cart" on="tap:AMP.setState({showLightbox: true})"><span class="mbri-shopping-cart mbr-iconfont"><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0.607 4.135c-0.451-0.006-0.667 0.33-0.667 0.667s0.216 0.673 0.667 0.667h3.469l3.214 14.148c0.002 0.009 0.005 0.017 0.008 0.026 0.114 0.423 0.29 0.847 0.607 1.203s0.814 0.622 1.37 0.622h17.951c0.557 0 1.054-0.272 1.367-0.628s0.488-0.774 0.607-1.188l2.688-9.333c0.18-0.627-0.105-1.244-0.503-1.609s-0.914-0.576-1.471-0.576h-21.305c-0.451-0.006-0.667 0.33-0.667 0.667s0.216 0.673 0.667 0.667h21.305c0.472 0 0.759 0.233 0.693 0.482l-2.688 9.333c-0.166 0.619-0.381 0.852-0.693 0.852h-17.951c-0.183 0-0.255-0.042-0.372-0.174-0.116-0.131-0.237-0.373-0.315-0.659l-3.328-14.648c-0.069-0.304-0.34-0.519-0.651-0.518zM9.94 12.135c-0.369 0-0.667 0.297-0.667 0.667s0.297 0.667 0.667 0.667h17.333c0.369 0 0.667-0.297 0.667-0.667s-0.297-0.667-0.667-0.667zM11.273 16.135c-0.369 0-0.667 0.297-0.667 0.667s0.297 0.667 0.667 0.667h14.667c0.369 0 0.667-0.297 0.667-0.667s-0.297-0.667-0.667-0.667zM10.607 22.802c-1.465 0-2.667 1.202-2.667 2.667s1.202 2.667 2.667 2.667c1.465 0 2.667-1.202 2.667-2.667s-1.202-2.667-2.667-2.667zM25.273 22.802c-1.465 0-2.667 1.202-2.667 2.667s1.202 2.667 2.667 2.667c1.465 0 2.667-1.202 2.667-2.667s-1.202-2.667-2.667-2.667zM10.607 24.135c0.744 0 1.333 0.589 1.333 1.333s-0.589 1.333-1.333 1.333c-0.744 0-1.333-0.589-1.333-1.333s0.589-1.333 1.333-1.333zM25.273 24.135c0.744 0 1.333 0.589 1.333 1.333s-0.589 1.333-1.333 1.333c-0.744 0-1.333-0.589-1.333-1.333s0.589-1.333 1.333-1.333z"></path></svg></span><span class="cart-counter pulse-button" data-amp-bind-text="cart.items.length"></span></a></div></amp-script><amp-lightbox id="my-bindable-lightbox" [open]="showLightbox" layout="nodisplay"><div class="lightbox-close" role="button" tabindex="0" on="tap:AMP.setState({showLightbox: false})"></div><div class="lightbox" role="button" tabindex="0"><div class="shoping-cart-lb-wrapper"><h4 class="mbr-shoping-title mbr-fonts-style mbr-bold display-7">You Order:</h4><hr><amp-list width="auto" layout="fixed-height" items="items" single-item="" id="cart-list" [src]="cart" height="0" [height]="cart.items.length * 50 + 77 || 50" binding="no"><template type="amp-mustache">{{#items}}<div class="mbr-row product"><h6 class="mbr-col mbr-fonts-style product-title display-7">{{item_name}}</h6><p class="mbr-col-auto product-price mbr-fonts-style display-7">{{amount}} ILS</p><div class="mbr-col-auto align-right"><amp-script class="amp-script-remove-btn" src="assets/shopping-cart/item.js" layout="fill"><a class="remove-btn display-7" on="tap:AMP.setState({cart: {items:cart.items.filter(item => item.id != {{id}}),total:cart.total-{{amount}}}})"></a></amp-script></div></div>{{/items}}{{#items.length}}<hr><p class="product-total align-right mbr-fonts-style display-7">Total: <span class="mbr-bold">{{total}}</span> ILS for <span class="mbr-bold">{{items.length}}</span> items</p>{{/items.length}}{{^items}}<p class="product-empty mbr-bold mbr-fonts-style display-5">Cart is Empty</p>{{/items}}</template></amp-list><div class="cart-footer align-right"><a class="paypal-btn" [class]="!cart.items.length ? 'paypal-btn disabled' : 'paypal-btn'" [href]="'https://www.paypal.com/us/cgi-bin/webscr?cmd=_cart&amp;business=avivysh79@hotmail.com&amp;upload=1&amp;currency_code=ILS' +cart.items.map((item, i) => '&amp;item_name_' + (i+1) + '=' + encodeURIComponent(item.item_name) + '&amp;amount_' + (i+1) + '=' + encodeURIComponent(item.amount)).join('')" target="_blank">Checkout with<amp-img layout="fixed" height="18" width="60" src="../assets/shopping-cart/paypal_btn.svg"></amp-img></a></div></div></div></amp-lightbox>
+<amp-animation id="cartanim" layout="nodisplay" trigger="visibility"><script type="application/json">{"duration": ".5s","iterations": "3","keyframes": {"opacity": [0,0,0.7,1]},"selector": ".pulse-button"}</script></amp-animation><amp-script src="assets/shopping-cart/cart.js" height="2" width="100" layout="responsive"><div class="shoping-cart-wrapper" data-amp-bind-class="cart.items.length ? &quot;shoping-cart-wrapper show&quot; : &quot;shoping-cart-wrapper&quot; "><a class="shopping-cart" on="tap:AMP.setState({showLightbox: true})"><span class="mbri-shopping-cart mbr-iconfont"><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0.607 4.135c-0.451-0.006-0.667 0.33-0.667 0.667s0.216 0.673 0.667 0.667h3.469l3.214 14.148c0.002 0.009 0.005 0.017 0.008 0.026 0.114 0.423 0.29 0.847 0.607 1.203s0.814 0.622 1.37 0.622h17.951c0.557 0 1.054-0.272 1.367-0.628s0.488-0.774 0.607-1.188l2.688-9.333c0.18-0.627-0.105-1.244-0.503-1.609s-0.914-0.576-1.471-0.576h-21.305c-0.451-0.006-0.667 0.33-0.667 0.667s0.216 0.673 0.667 0.667h21.305c0.472 0 0.759 0.233 0.693 0.482l-2.688 9.333c-0.166 0.619-0.381 0.852-0.693 0.852h-17.951c-0.183 0-0.255-0.042-0.372-0.174-0.116-0.131-0.237-0.373-0.315-0.659l-3.328-14.648c-0.069-0.304-0.34-0.519-0.651-0.518zM9.94 12.135c-0.369 0-0.667 0.297-0.667 0.667s0.297 0.667 0.667 0.667h17.333c0.369 0 0.667-0.297 0.667-0.667s-0.297-0.667-0.667-0.667zM11.273 16.135c-0.369 0-0.667 0.297-0.667 0.667s0.297 0.667 0.667 0.667h14.667c0.369 0 0.667-0.297 0.667-0.667s-0.297-0.667-0.667-0.667zM10.607 22.802c-1.465 0-2.667 1.202-2.667 2.667s1.202 2.667 2.667 2.667c1.465 0 2.667-1.202 2.667-2.667s-1.202-2.667-2.667-2.667zM25.273 22.802c-1.465 0-2.667 1.202-2.667 2.667s1.202 2.667 2.667 2.667c1.465 0 2.667-1.202 2.667-2.667s-1.202-2.667-2.667-2.667zM10.607 24.135c0.744 0 1.333 0.589 1.333 1.333s-0.589 1.333-1.333 1.333c-0.744 0-1.333-0.589-1.333-1.333s0.589-1.333 1.333-1.333zM25.273 24.135c0.744 0 1.333 0.589 1.333 1.333s-0.589 1.333-1.333 1.333c-0.744 0-1.333-0.589-1.333-1.333s0.589-1.333 1.333-1.333z"></path></svg></span><span class="cart-counter pulse-button" data-amp-bind-text="cart.items.length"></span></a></div></amp-script><amp-lightbox id="my-bindable-lightbox" [open]="showLightbox" layout="nodisplay"><div class="lightbox-close" role="button" tabindex="0" on="tap:AMP.setState({showLightbox: false})"></div><div class="lightbox" role="button" tabindex="0"><div class="shoping-cart-lb-wrapper"><h4 class="mbr-shoping-title mbr-fonts-style mbr-bold display-7">Your Order:</h4><hr><amp-list width="auto" layout="fixed-height" items="items" single-item="" id="cart-list" [src]="cart" height="0" [height]="cart.items.length * 50 + 77 || 50" binding="no"><template type="amp-mustache">{{#items}}<div class="mbr-row product"><h6 class="mbr-col mbr-fonts-style product-title display-7">{{item_name}}</h6><p class="mbr-col-auto product-price mbr-fonts-style display-7">{{amount}} ILS</p><div class="mbr-col-auto align-right"><amp-script class="amp-script-remove-btn" src="assets/shopping-cart/item.js" layout="fill"><a class="remove-btn display-7" on="tap:AMP.setState({cart: {items:cart.items.filter(item => item.id != {{id}}),total:cart.total-{{amount}}}})"></a></amp-script></div></div>{{/items}}{{#items.length}}<hr><p class="product-total align-right mbr-fonts-style display-7"><span class="mbr-bold">{{total}}</span> ILS for <span class="mbr-bold">{{items.length}}</span> items</p>{{/items.length}}{{^items}}<p class="product-empty mbr-bold mbr-fonts-style display-5">Cart is Empty</p>{{/items}}</template></amp-list><div class="cart-footer align-right"><a class="paypal-btn" [class]="!cart.items.length ? 'paypal-btn disabled' : 'paypal-btn'" [href]="'https://www.paypal.com/us/cgi-bin/webscr?cmd=_cart&amp;business=avivysh79@hotmail.com&amp;upload=1&amp;currency_code=ILS' +cart.items.map((item, i) => '&amp;item_name_' + (i+1) + '=' + encodeURIComponent(item.item_name) + '&amp;amount_' + (i+1) + '=' + encodeURIComponent(item.amount)).join('')" target="_blank">Checkout with<amp-img layout="fixed" height="18" width="60" src="../assets/shopping-cart/paypal_btn.svg"></amp-img></a></div></div></div></amp-lightbox>
   
   <section class="menu horizontal-menu cid-rX48m2CP8i" id="menu01-0">
 
@@ -162,7 +162,7 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
             
                <div class="mbr-col-lg-6 mbr-col-md-12 md-pb mbr-m-auto mbr-col-sm-12">
                    <div class="img-wrapper">
-         <amp-img src="assets/images/8d9032c57c7e03d0493c336778ab142d0e546ce8-500x357.jpg" alt="" width="505.9957983193277" height="361.281" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
+         <amp-img src="assets/images/-960x643.jpg" alt="" width="505.9871850699845" height="338.906" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
                     <div placeholder="" class="placeholder">
                                 <div class="mobirise-spinner">
                                     <em></em>
@@ -181,10 +181,9 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
                         
             
                <h3 style="padding-bottom: 20px;" class="mbr-section-title mbr-fonts-style align-left mbr-semibold mbr-white mbr-pb-5 display-2">הסופרת רויטל שירי הורוביץ</h3>
-        <p stylr="height:224px" class="mbr-text text1 mbr-bold mbr-fonts-style align-left mbr-white mbr-light mbr-pb-3 display-4"><span style="font-weight: normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam malesuada ut magna vel porta. Praesent consectetur molestie finibus. Fusce vitae urna in quam malesuada rutrum. <br><br>Aliquam mauris augue, dictum eget lorem at, sodales condimentum risus. Aenean ac leo at nisi malesuada sodales a nec diam. Quisque eget sagittis risus.</span></p>
-        <p class="mbr-fonts-style text2 mbr-text align-left mbr-pb-3 mbr-white display-4"><em>
-            Pellentesque luctus viverra odio, dignissim vehicula lorem convallis eu. Aliquam accumsan mauris fermentum.</em></p>
-        <div style="float: left;" class="mbr-section-btn align-left"><a class="btn btn-lg btn-white display-7" href="#"><span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M24 11l-6.7 6.7-1.4-1.4 4.3-4.3H0v-2h20.2l-4.3-4.3 1.4-1.4L24 11z"></path></svg></span>
+        <p stylr="height:224px" class="mbr-text text1 mbr-bold mbr-fonts-style align-left mbr-white mbr-light mbr-pb-3 display-4">רויטל שירי-הורוביץ מטפלת מאמנת ומנחת סדנאות לנשים שגדלו בצילה של הורות נרקיסיסטית, בשיטת חמשת הצעדים להחלמה על פי ד"ר קריל מקברייד. כמי שחוותה הורות נרקיסיסטית בעצמה, היא שואפת להביא למודעות, לחזק ולהוביל נשים שגדלו בצילו של נרקיסיזם הורי לחיים מלאים של שמחה ועשייה. ספרה השלישי "את מדמיינת – לגדול עם אמא נרקיסיסטית – מסע בין תובנות" יצא לאור ב 2018, והוא עוסק במסע האישי אותו עברה.<br></p>
+        <p class="mbr-fonts-style text2 mbr-text align-left mbr-pb-3 mbr-white display-4">ספרה השלישי "את מדמיינת – לגדול עם אמא נרקיסיסטית – מסע בין תובנות" יצא לאור ב 2018, והוא עוסק במסע האישי אותו עברה.<br></p>
+        <div style="float: left;" class="mbr-section-btn align-left"><a class="btn btn-lg btn-white display-7" href="#">
                 להמשך קריאה</a></div>
     </div>
             
@@ -236,9 +235,9 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
             </div>
                     </div> 
                     <div class="card-box">
-                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2"></h3>
-                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7"></h4>
-                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4"></p>
+                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">מסכת של שקרים</h3>
+                         
+                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">אם גדלת בתוך מסכת של שקרים, עד כדי כך שלא ידעת אם את אכן רואה את מה שאת רואה, או שומעת את מה שאת שומעת</p>
                      
                     </div>
                 </div>
@@ -255,9 +254,9 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
             </div>
                     </div> 
                     <div class="card-box">
-                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2"></h3>
-                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7"></h4>
-                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4"></p>
+                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">הרגשת פער</h3>
+                         
+                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">אם תמיד הרגשת פער בין מה שהיא אמרה ובין מה שהיא עשתה, אם הרגשת שהיא מנסה לשלוט בך</p>
                      
                     </div>
                 </div>
@@ -274,9 +273,9 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
             </div>
                     </div> 
                     <div class="card-box">
-                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2"></h3>
-                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7"></h4>
-                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4"></p>
+                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">יתכן וגדלת עם אם נרקיסיסטית</h3>
+                         
+                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">יתכן וגדלת עם אם נרקיסיסטית<br>יתכן וגדלת עם אם נרקיסיסטית – ואת לא לבד!</p>
                      
                     </div>
                 </div>
@@ -294,9 +293,9 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
             </div>
                     </div> 
                     <div class="card-box">
-                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2"></h3>
-                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7"></h4>
-                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4"></p>
+                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">את מדמיינת</h3>
+                         
+                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">אם אמרו לך באופן קבוע ש"את מדמיינת" או "מגזימה" והיה פער בין מה שהרגשת ומה שאמרו לך, אם מלאו את ראשך ואת ליבך ברגשות אשמה</p>
                      
                     </div>
                 </div>
@@ -598,7 +597,7 @@ body{font-family: Sen;}blockquote{border-color: #bb4052;}div[submit-success] > *
                 <div class="form-card">
                     <div class="col-lg-12 mx-auto  mbr-form" data-form-type="formoid">
                         <!--Formbuilder Form-->
-                        <form method="POST" class="mbr-form" action-xhr="https://formoid.net/api/amp-form/push" data-form-title="Form Name" id="myFormform03g" on="submit:myFormform03g.clear;submit-success:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: '', valueformdata01form03g: ''}, formdata11form03g:{stateformdata11form03g: '', valueformdata11form03g: ''}}});submit-error:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: myStateform03g.formdata01form03g.valueformdata01form03g}, formdata11form03g:{stateformdata11form03g: myStateform03g.formdata11form03g.valueformdata11form03g}}})"><amp-state id="myStateform03g"><script type="application/json"> {"formdata01form03g":{ "stateformdata01form03g": "", "valueformdata01form03g": ""},"formdata11form03g":{ "stateformdata11form03g": "", "valueformdata11form03g": ""}}</script></amp-state><input type="hidden" name="email" data-form-email="true" value="hsfBtOlfFocu8rsJaWXCe768vWXf+rMhGgJwDdeCSeJCCSwk4Tv6bvzszBE9MONjv3DzQ1Br3RIX+lTxO+Lc1Zt8D116UqLz8gvlgC6154HAz3mCkF3eQlU4XN36FNkC">
+                        <form method="POST" class="mbr-form" action-xhr="https://formoid.net/api/amp-form/push" data-form-title="Form Name" id="myFormform03g" on="submit:myFormform03g.clear;submit-success:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: '', valueformdata01form03g: ''}, formdata11form03g:{stateformdata11form03g: '', valueformdata11form03g: ''}}});submit-error:AMP.setState({myStateform03g:{formdata01form03g:{stateformdata01form03g: myStateform03g.formdata01form03g.valueformdata01form03g}, formdata11form03g:{stateformdata11form03g: myStateform03g.formdata11form03g.valueformdata11form03g}}})"><amp-state id="myStateform03g"><script type="application/json"> {"formdata01form03g":{ "stateformdata01form03g": "", "valueformdata01form03g": ""},"formdata11form03g":{ "stateformdata11form03g": "", "valueformdata11form03g": ""}}</script></amp-state><input type="hidden" name="email" data-form-email="true" value="lBGVe3hWg1dMN6+LESfAlbhLDOsVOGgGJHj7ArdBBUhA6NW9VUuehdTSnZ61nJP3RlcUvLgHVRQUbcRCUG/bWroMtfH+ixdDZtWuGDgMJhvP/pw1DxTYHpVG20jrCgbk">
                             <div class="mbr-row">
                                 <div submit-success="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
                                     <template data-form-alert="" type="amp-mustache">Thanks for filling out the
