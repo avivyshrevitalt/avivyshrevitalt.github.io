@@ -42,7 +42,6 @@ $( document ).ready(function() {
                 '                    <div class="card-box">\n' +
                 '                        <h3 class="title mbr-fonts-style mbr-pb-2 align-left mbr-semibold display-2">\n' +
                 ''+value.title+'</h3>\n' +
-                '                         <h4 class="subtitle mbr-fonts-style mbr-pb-2 align-left mbr-regular display-7">'+value.subTitle+'</h4>\n' +
                 '                        <p class="mbr-text mbr-fonts-style mbr-light align-left display-4">'+value.description+'</p>\n' +
                 '                     \n' +
                 '                    </div>\n' +
