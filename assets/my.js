@@ -12,8 +12,7 @@ $( document ).ready(function() {
     }
     headerRender = (header) => {
         $('.content02 .display-1').html(header.name);
-        $('.content02 .text1').html((header.bioText[0]+header.bioText[1]).slice(0, 400) );
-        $('.content02 .text2').html((header.bioText[2][0]).slice(0, 100) + "...");
+        $('.content02 .text1').html((header.bioText[0]+header.bioText[1]));
         setTimeout(function () {
             $('.content02 .i-amphtml-replaced-content').attr('src', header.image);
             $('.content02 .i-amphtml-layout').attr('src', header.image);
