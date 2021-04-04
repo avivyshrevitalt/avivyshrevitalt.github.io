@@ -131,7 +131,7 @@ $( document ).ready(function() {
 
             headerRender(data.result[0].header);
 
-            sectionARender(data.result[0].sectionA,'Our Core Features');
+            sectionARender(data.result[0].sectionA,'המרכז לטיפול בנפגעי נרקיסיזם הורי');
 
             sectionBRender(data.result[0].sectionB);
 
